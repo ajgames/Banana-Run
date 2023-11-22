@@ -1,0 +1,11 @@
+Model Information:
+* title:	Low Poly Banana
+* source:	https://sketchfab.com/3d-models/low-poly-banana-ce5f751cf8044affaef94d79f0057f5d
+* author:	Andrew Sink (https://sketchfab.com/andrewsink)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Low Poly Banana" (https://sketchfab.com/3d-models/low-poly-banana-ce5f751cf8044affaef94d79f0057f5d) by Andrew Sink (https://sketchfab.com/andrewsink) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)

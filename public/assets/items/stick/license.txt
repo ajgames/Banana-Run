@@ -1,0 +1,11 @@
+Model Information:
+* title:	Gorilla Tag Stick
+* source:	https://sketchfab.com/3d-models/gorilla-tag-stick-7bd2ab579f8a46e0ad59587c59e6852f
+* author:	Super (https://sketchfab.com/Super50)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Gorilla Tag Stick" (https://sketchfab.com/3d-models/gorilla-tag-stick-7bd2ab579f8a46e0ad59587c59e6852f) by Super (https://sketchfab.com/Super50) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
