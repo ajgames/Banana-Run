@@ -2,4 +2,5 @@
 
 Massive online peer to peer, shooter tag, running, driving, flying, parkour, over-ambitious game about bananas.
 
-`bun` && `bun run dev `
+You can bun, yarn, npm, it should all work, I think!
+`bun install` && `bun run dev `
