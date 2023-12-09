@@ -1,10 +1,17 @@
 import { useLoader } from '@react-three/fiber'
 import { TextureLoader } from 'three/src/loaders/TextureLoader'
 import metalTexture from '/assets/banana-tag-2.png'
-// import { useReducer } from 'react'
 import { useFrame } from '@react-three/fiber'
 import { Banana as BananaType } from './banana.state'
 
+/**
+ * This component renders a banana.
+ * @param position The position of the banana.
+ * @param radius The radius of the banana.
+ * @param update A function that updates the banana's state.
+ * @param rotation The rotation of the banana.
+ * @returns A React Three Fiber mesh.
+ */
 const Banana: React.FC<BananaType> = ({
     position,
     radius = 0.5,
@@ -15,10 +22,8 @@ const Banana: React.FC<BananaType> = ({
     // the question is: is this where I want to update the banana state?
     const texture = useLoader(TextureLoader, metalTexture)
 
-    // const [, forceUpdate] = useReducer((x) => x + 1, 0)
     useFrame((_, delta) => {
         update(delta)
-        // forceUpdate()
     })
 
     return (

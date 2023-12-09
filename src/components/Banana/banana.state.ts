@@ -1,5 +1,6 @@
-import { Euler, Vector3 } from 'three'
+import { Euler, Quaternion, Vector3 } from 'three'
 import { self } from '../../players.state'
+import bananaUpdateFn from './bananaUpdateFn'
 
 function throwBanana(
     startPosition: Vector3,
@@ -7,12 +8,18 @@ function throwBanana(
     rotationalVelocity: Vector3
 ) {
     const id = Date.now().toString() // Simple unique ID
+    const rotation = new Euler(
+        rotationalVelocity.x,
+        rotationalVelocity.y,
+        rotationalVelocity.z
+    )
     bananas[id] = {
         id,
         playerId: self.id,
         position: startPosition,
         velocity: launchVelocity,
-        rotation: new Euler().setFromVector3(rotationalVelocity),
+        quaternion: new Quaternion().setFromEuler(rotation),
+        rotation,
         rotationalVelocity,
         update: (delta: number) => {
             bananaUpdateFn(delta, bananas[id])
@@ -23,30 +30,7 @@ function throwBanana(
     return id
 }
 
-function bananaUpdateFn(delta: number, self: Banana) {
-    const { position, id, velocity, rotationalVelocity, rotation } = self
-    // Update position based on velocity and delta
-    self.position = new Vector3(
-        position.x + velocity.x * delta,
-        position.y + velocity.y * delta,
-        position.z + velocity.z * delta
-    )
-    // Update rotation based on rotational velocity and delta
-    // The rotation for each axis is increased by the rotational velocity for that axis times delta
-    self.rotation = new Euler(
-        rotation.x + rotationalVelocity.x * delta,
-        rotation.y + rotationalVelocity.y * delta,
-        rotation.z + rotationalVelocity.z * delta
-    )
-    if (position.y <= 0) {
-        // @todo - broadcast banana removed to all peers
-        return removeBanana(id)
-    }
-    // @todo - broadcast banana position to all peers
-    return position
-}
-
-function removeBanana(id: string) {
+export function removeBanana(id: string) {
     delete bananas[id]
 }
 
@@ -60,6 +44,7 @@ export type Banana = {
     position: Vector3
     velocity: Vector3
     rotation: Euler
+    quaternion: Quaternion
     rotationalVelocity: Vector3
     /** Used to hold onto which player threw this banana */
     playerId: string

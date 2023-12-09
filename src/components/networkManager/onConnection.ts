@@ -1,7 +1,6 @@
 import { DataConnection } from 'peerjs'
 import { Vector3 } from 'three'
-import { Player } from '../../redux/slices/playerSlice'
-import { players } from '../../players.state'
+import { Player, players } from '../../players.state'
 
 type UpdatePlayerPositionPayload = {
     action: 'updatePlayerPosition'
@@ -24,11 +23,12 @@ export type NetworkPayload = UpdatePlayerPositionPayload | AddPlayerPayload
  * @returns
  */
 export default function onConnection(conn: DataConnection) {
-    // You can dispatch an action to add this player connection to your Redux state
     players[conn.peer] = {
         id: conn.peer,
         connection: conn,
         position: new Vector3(),
+        velocity: new Vector3(),
+        direction: new Vector3(),
     }
     // Handle new connection
     conn.on('open', () => console.log('Connected to: ' + conn.peer))

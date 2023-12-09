@@ -15,6 +15,7 @@ import { bananas } from './Banana/banana.state'
 import { useFrame } from '@react-three/fiber'
 import Banana from './Banana/Banana'
 import ThrowBanana from './Banana/ThrowBanana'
+import Drone from './Drone/Drone'
 
 const RenderMonkes = () => {
     const [, forceUpdate] = useReducer((x) => x + 1, 0)
@@ -64,19 +65,21 @@ const Scene: React.FC = () => {
         <>
             <NetworkManager />
             {/* Skybox */}
-            <Sky sunPosition={[100, 10, 100]} />
+            <Sky sunPosition={[100, 100, 100]} />
             <Stars
                 radius={100}
                 depth={50}
                 count={5000}
                 factor={4}
-                saturation={0}
+                saturation={1}
                 fade
             />
 
             {/* Lighting */}
             <directionalLight position={[10, 10, 5]} intensity={1.0} />
-            <ambientLight intensity={0.3} />
+            <ambientLight intensity={0.7} />
+
+            <Drone />
 
             <RenderMonkes />
             <RenderBananas />
