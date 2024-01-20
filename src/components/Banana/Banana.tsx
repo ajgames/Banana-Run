@@ -3,6 +3,7 @@ import { TextureLoader } from 'three/src/loaders/TextureLoader'
 import metalTexture from '/assets/banana-tag-2.png'
 import { useFrame } from '@react-three/fiber'
 import { Banana as BananaType } from './banana.state'
+import { RigidBody } from '@react-three/rapier'
 
 /**
  * This component renders a banana.
@@ -23,19 +24,21 @@ const Banana: React.FC<BananaType> = ({
     const texture = useLoader(TextureLoader, metalTexture)
 
     useFrame((_, delta) => {
-        update(delta)
+        // update(delta)
     })
 
     return (
-        <mesh position={position} rotation={rotation}>
-            <sphereGeometry args={[radius, 32, 32]} />
-            <meshStandardMaterial
-                metalness={0.5}
-                roughness={0.1}
-                envMapIntensity={1.0}
-                map={texture}
-            />
-        </mesh>
+        <RigidBody colliders="ball" restitution={0.5} friction={0.8} mass={20}>
+            <mesh position={position} rotation={rotation}>
+                <boxGeometry args={[1, 1, 1]} />
+                <meshStandardMaterial
+                    metalness={0.5}
+                    roughness={0.1}
+                    envMapIntensity={1.0}
+                    map={texture}
+                />
+            </mesh>
+        </RigidBody>
     )
 }
 

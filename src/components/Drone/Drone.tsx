@@ -6,6 +6,7 @@ import { useEffect, useRef } from 'react'
 import { self } from '../../players.state'
 import { Vector3 } from 'three'
 import inFrontOfCalculation from './inFrontOfCalculation'
+import { RigidBody } from '@react-three/rapier'
 
 /**
  * @todo fill in this description
@@ -92,15 +93,17 @@ const Drone: React.FC = () => {
     })
 
     return (
-        <mesh position={initialPosition} ref={meshRef}>
-            <boxGeometry args={[2, 2, 2]} />
-            <meshStandardMaterial
-                metalness={0.5}
-                roughness={0.1}
-                envMapIntensity={1.0}
-                map={texture}
-            />
-        </mesh>
+        <RigidBody>
+            <mesh position={initialPosition} ref={meshRef}>
+                <boxGeometry args={[2, 2, 2]} />
+                <meshStandardMaterial
+                    metalness={0.5}
+                    roughness={0.1}
+                    envMapIntensity={1.0}
+                    map={texture}
+                />
+            </mesh>
+        </RigidBody>
     )
 }
 

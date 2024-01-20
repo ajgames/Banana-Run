@@ -41,8 +41,7 @@ const Scene: React.FC = () => {
     const pointerLock = useRef<PointerLockControlsProps>({})
     // Render Monke components for each player
 
-    //continued down below
-    //this was fun just trying to get "Pause" working and unlocking the mouse
+    //this was to get "Pause" working and unlocking the mouse
     useEffect(() => {
         const handleKeyDown = (e: KeyboardEvent) => {
             if (e.code == 'KeyP') {
@@ -88,6 +87,7 @@ const Scene: React.FC = () => {
             <Floor />
             {/* @ts-ignore some mis-matching with the ref types, no big deal */}
             <PointerLockControls ref={pointerLock} />
+
             <Jump />
             <Move />
             <ThrowBanana />
