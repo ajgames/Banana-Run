@@ -16,6 +16,7 @@ import { useFrame } from '@react-three/fiber'
 import Banana from './Banana/Banana'
 import ThrowBanana from './Banana/ThrowBanana'
 import Drone from './Drone/Drone'
+import Player from './Player/Player'
 
 const RenderMonkes = () => {
     const [, forceUpdate] = useReducer((x) => x + 1, 0)
@@ -79,6 +80,8 @@ const Scene: React.FC = () => {
             <ambientLight intensity={0.7} />
 
             <Drone />
+
+            <Player />
 
             <RenderMonkes />
             <RenderBananas />

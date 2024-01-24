@@ -16,9 +16,11 @@ export function updateCameraPosition(newPosition: Vector3) {
         // Position hasn't changed, so just return
         return
     }
+    // self.position = newPosition
     self.position.setX(newPosition.x)
     self.position.setY(newPosition.y)
     self.position.setZ(newPosition.z)
+
     // Broadcast the new position to all peers
     for (const playerId in players) {
         if (!players[playerId].connection) {

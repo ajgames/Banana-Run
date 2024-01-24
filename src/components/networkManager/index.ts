@@ -8,8 +8,8 @@ export const PEER_ID = '123' + Math.floor(Math.random() * 310000)
 
 // Initialize Peer object with your desired options
 export const peer = new Peer(PEER_ID, {
-    host: 'localhost',
-    // host: '192.168.0.21',
+    // host: 'localhost',
+    host: '192.168.6.46',
     port: 9000,
     path: '/banana',
     key: 'haha',

@@ -6,9 +6,8 @@ import intervalPeerList from './PeerPoling'
 import main from './Main'
 
 /**
- * Pure? function that acts like a hook. Maintains the global states
- * where each player is connected via WebSockets.
- * @returns
+ * Pure? function that acts like a hook. Maintains the global
+ * states where each player is connected via WebSockets.
  */
 const NetworkManager: React.FC = () => {
     const dispatch = useAppDispatch()

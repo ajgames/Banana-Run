@@ -31,7 +31,7 @@ const ThrowBanana: React.FC = () => {
         }
         const handleMouseUp = () => {
             clickState.current.holding = false
-            launchBanana(mousePositions.current, camera)
+            launchBanana(mousePositions.current)
         }
         window.addEventListener('mousedown', handleMouseDown)
         window.addEventListener('mouseup', handleMouseUp)
